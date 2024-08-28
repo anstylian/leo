@@ -45,7 +45,8 @@ use leo_errors::UtilError;
 use leo_retriever::{fetch_from_network, verify_valid_program, NetworkName};
 
 ///  Query live data from the Aleo network.
-#[derive(Parser, Debug)]
+#[derive(clap::Args, Debug)]
+#[group(skip)]
 pub struct Query {
     #[clap(short, long, global = true, help = "Endpoint to retrieve network state from. Defaults to entry in `.env`.")]
     pub endpoint: Option<String>,

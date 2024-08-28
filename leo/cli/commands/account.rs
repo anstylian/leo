@@ -34,7 +34,7 @@ use std::{
 };
 
 /// Commands to manage Aleo accounts.
-#[derive(Parser, Debug)]
+#[derive(Debug, clap::Subcommand)]
 pub enum Account {
     /// Generates a new Aleo account
     New {

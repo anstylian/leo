@@ -20,7 +20,8 @@ use snarkvm::prelude::{CanaryV0, MainnetV0, TestnetV0};
 use leo_retriever::NetworkName;
 
 /// Create new Leo project
-#[derive(Parser, Debug)]
+#[derive(clap::Args, Debug)]
+#[group(skip)]
 pub struct New {
     #[clap(name = "NAME", help = "Set package name")]
     pub(crate) name: String,

@@ -40,7 +40,7 @@ pub struct CLI {
 }
 
 ///Leo compiler and package manager
-#[derive(Parser, Debug)]
+#[derive(Debug, clap::Subcommand)]
 enum Commands {
     #[clap(about = "Create a new Aleo account, sign and verify messages")]
     Account {
