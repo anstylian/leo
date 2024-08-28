@@ -169,7 +169,7 @@ ureq = "2.10.1"
 
   [dependencies.tracing-subscriber]
   version = "0.3.18"
-  features = [ "fmt" ]
+  features = [ "fmt", "json" ]
 
   [dependencies.crossterm]
   version = "0.28.1"

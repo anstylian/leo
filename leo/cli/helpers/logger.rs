@@ -56,7 +56,6 @@ impl<F, T> Format<F, T> {
     /// object.
     ///
     /// [`Format::flatten_event`]: #method.flatten_event
-    #[cfg(feature = "json")]
     pub fn json(self) -> Format<Json, T> {
         Format {
             format: Json::default(),
