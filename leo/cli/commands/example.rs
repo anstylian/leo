@@ -19,7 +19,8 @@ use super::*;
 use std::fs;
 
 /// Initialize a new Leo example.
-#[derive(Parser, Debug)]
+#[derive(clap::Args, Debug)]
+#[group(skip)]
 pub struct Example {
     #[clap(name = "NAME", help = "The example to initialize.")]
     pub(crate) name: String,

@@ -19,8 +19,9 @@ use leo_retriever::{Dependency, Location, Manifest, NetworkName};
 use std::path::PathBuf;
 
 /// Add a new on-chain or local dependency to the current package.
-#[derive(Parser, Debug)]
+#[derive(clap::Args, Debug)]
 #[clap(name = "leo", author = "The Aleo Team <hello@aleo.org>", version)]
+#[group(skip)]
 pub struct Add {
     #[clap(name = "NAME", help = "The dependency name. Ex: `credits.aleo` or `credits`.")]
     pub(crate) name: String,

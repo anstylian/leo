@@ -18,7 +18,8 @@ use super::*;
 use crate::cli::helpers::updater::Updater;
 
 /// Update Leo to the latest version
-#[derive(Debug, Parser)]
+#[derive(clap::Args, Debug)]
+#[group(skip)]
 pub struct Update {
     /// Lists all available versions of Leo
     #[clap(short = 'l', long)]

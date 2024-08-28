@@ -16,7 +16,6 @@
 
 use super::*;
 use aleo_std::StorageMode;
-use clap::Parser;
 use snarkvm::{
     cli::helpers::dotenv_private_key,
     prelude::{Network, Parser as SnarkVMParser},
@@ -49,7 +48,8 @@ use snarkvm::{
 };
 
 /// Build, Prove and Run Leo program with inputs
-#[derive(Parser, Debug)]
+#[derive(clap::Args, Debug)]
+#[group(skip)]
 pub struct Execute {
     #[clap(name = "NAME", help = "The name of the function to execute.", default_value = "main")]
     name: String,

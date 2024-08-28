@@ -23,7 +23,8 @@ use snarkvm::{
 };
 
 /// Build, Prove and Run Leo program with inputs
-#[derive(Parser, Debug)]
+#[derive(clap::Args, Debug)]
+#[group(skip)]
 pub struct Run {
     #[clap(name = "NAME", help = "The name of the program to run.", default_value = "main")]
     pub(crate) name: String,
