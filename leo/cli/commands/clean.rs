@@ -17,8 +17,7 @@
 use super::*;
 
 /// Clean outputs folder command
-#[derive(clap::Args, Debug)]
-#[group(skip)]
+#[derive(Debug, Parser)]
 pub struct Clean {}
 
 impl Command for Clean {

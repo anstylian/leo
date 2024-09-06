@@ -40,7 +40,7 @@ pub struct CLI {
 }
 
 ///Leo compiler and package manager
-#[derive(Debug, clap::Subcommand)]
+#[derive(Debug, Parser)]
 enum Commands {
     #[clap(about = "Create a new Aleo account, sign and verify messages")]
     Account {
@@ -48,60 +48,27 @@ enum Commands {
         command: Account,
     },
     #[clap(about = "Create a new Leo package in a new directory")]
-    New {
-        #[clap(flatten)]
-        command: New,
-    },
+    New(New),
     #[clap(about = "Create a new Leo example package in a new directory")]
-    Example {
-        #[clap(flatten)]
-        command: Example,
-    },
+    Example(Example),
     #[clap(about = "Run a program with input variables")]
-    Run {
-        #[clap(flatten)]
-        command: Run,
-    },
+    Run(Run),
     #[clap(about = "Execute a program with input variables")]
-    Execute {
-        #[clap(flatten)]
-        command: Execute,
-    },
+    Execute(Execute),
     #[clap(about = "Deploy a program")]
-    Deploy {
-        #[clap(flatten)]
-        command: Deploy,
-    },
+    Deploy(Deploy),
     #[clap(about = "Query live data from the Aleo network")]
-    Query {
-        #[clap(flatten)]
-        command: Query,
-    },
+    Query(Query),
     #[clap(about = "Compile the current package as a program")]
-    Build {
-        #[clap(flatten)]
-        command: Build,
-    },
+    Build(Build),
     #[clap(about = "Add a new on-chain or local dependency to the current package.")]
-    Add {
-        #[clap(flatten)]
-        command: Add,
-    },
+    Add(Add),
     #[clap(about = "Remove a dependency from the current package.")]
-    Remove {
-        #[clap(flatten)]
-        command: Remove,
-    },
+    Remove(Remove),
     #[clap(about = "Clean the output directory")]
-    Clean {
-        #[clap(flatten)]
-        command: Clean,
-    },
+    Clean(Clean),
     #[clap(about = "Update the Leo CLI")]
-    Update {
-        #[clap(flatten)]
-        command: Update,
-    },
+    Update(Update),
 }
 
 pub fn handle_error<T>(res: Result<T>) -> T {
@@ -129,18 +96,18 @@ pub fn run_with_args(cli: CLI) -> Result<()> {
     let context = handle_error(Context::new(cli.path, cli.home, false));
 
     match cli.command {
-        Commands::Add { command } => command.try_execute(context),
+        Commands::Add(command) => command.try_execute(context),
         Commands::Account { command } => command.try_execute(context),
-        Commands::New { command } => command.try_execute(context),
-        Commands::Build { command } => command.try_execute(context),
-        Commands::Query { command } => command.try_execute(context),
-        Commands::Clean { command } => command.try_execute(context),
-        Commands::Deploy { command } => command.try_execute(context),
-        Commands::Example { command } => command.try_execute(context),
-        Commands::Run { command } => command.try_execute(context),
-        Commands::Execute { command } => command.try_execute(context),
-        Commands::Remove { command } => command.try_execute(context),
-        Commands::Update { command } => command.try_execute(context),
+        Commands::New(command) => command.try_execute(context),
+        Commands::Build(command) => command.try_execute(context),
+        Commands::Query(command) => command.try_execute(context),
+        Commands::Clean(command) => command.try_execute(context),
+        Commands::Deploy(command) => command.try_execute(context),
+        Commands::Example(command) => command.try_execute(context),
+        Commands::Run(command) => command.try_execute(context),
+        Commands::Execute(command) => command.try_execute(context),
+        Commands::Remove(command) => command.try_execute(context),
+        Commands::Update(command) => command.try_execute(context),
     }
 }
 #[cfg(test)]

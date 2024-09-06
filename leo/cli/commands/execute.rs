@@ -48,8 +48,7 @@ use snarkvm::{
 };
 
 /// Build, Prove and Run Leo program with inputs
-#[derive(clap::Args, Debug)]
-#[group(skip)]
+#[derive(Debug, Parser)]
 pub struct Execute {
     #[clap(name = "NAME", help = "The name of the function to execute.", default_value = "main")]
     name: String,

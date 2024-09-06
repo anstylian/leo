@@ -16,7 +16,6 @@
 
 use super::*;
 
-use clap::Args;
 use leo_ast::Stub;
 use leo_compiler::{Compiler, CompilerOptions, OutputOptions};
 use leo_errors::{CliError, UtilError};
@@ -75,8 +74,7 @@ impl From<BuildOptions> for CompilerOptions {
 }
 
 /// Compile and build program command.
-#[derive(Debug, Args)]
-#[group(skip)]
+#[derive(Debug, Parser)]
 pub struct Build {
     #[clap(flatten)]
     pub(crate) options: BuildOptions,

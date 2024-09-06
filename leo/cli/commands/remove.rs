@@ -18,9 +18,8 @@ use super::*;
 use leo_retriever::{Dependency, Manifest};
 
 /// Remove a dependency from the current package.
-#[derive(clap::Args, Debug)]
+#[derive(Debug, Parser)]
 #[clap(name = "leo", author = "The Aleo Team <hello@aleo.org>", version)]
-#[group(skip)]
 pub struct Remove {
     #[clap(
         name = "NAME",

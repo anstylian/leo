@@ -36,8 +36,7 @@ use std::path::PathBuf;
 use text_tables;
 
 /// Deploys an Aleo program.
-#[derive(clap::Args, Debug)]
-#[group(skip)]
+#[derive(Debug, Parser)]
 pub struct Deploy {
     #[clap(flatten)]
     pub(crate) fee_options: FeeOptions,

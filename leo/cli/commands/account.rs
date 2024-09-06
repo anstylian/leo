@@ -60,6 +60,7 @@ pub enum Account {
     /// Derive an Aleo account from a private key.
     Import {
         /// Private key plaintext
+        #[clap(short = 'p', long)]
         private_key: Option<String>,
         /// Write the private key to the .env file.
         #[clap(short = 'w', long)]
